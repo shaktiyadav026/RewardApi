@@ -1,4 +1,4 @@
-package com.example.rewardapi.util;
+package com.rewards.api.util;
 
 import java.time.LocalDate;
 import java.time.format.TextStyle;

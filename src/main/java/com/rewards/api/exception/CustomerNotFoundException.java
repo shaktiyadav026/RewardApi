@@ -1,4 +1,4 @@
-package com.example.rewardapi.exception;
+package com.rewards.api.exception;
 
 /**
  * Exception thrown when a customer ID is not found in the system.

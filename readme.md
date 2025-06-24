@@ -18,22 +18,88 @@ The system calculates reward points **per customer**, broken down **monthly** an
 
 ---
 
+✅ Project Overview
+The Rewards API is a Spring Boot-based RESTful Web API that calculates reward points for customers based on their transactions over the past three months.
+
+This project:
+
+Calculates monthly and total reward points per customer.
+
+Provides APIs to retrieve customer information and rewards data.
+
+Uses mock data in the repository layer to simulate a real database.
+
+
+
 ## 🚀 Tech Stack
 
-- Java 17+
-- Spring Boot 3.x
-- RESTful API
-- JUnit 5 (unit + integration tests)
+Java 17
+
+Spring Boot 3.x
+
+REST API
+
+JUnit 5
+
+Mockito
+
+Maven
 
 ---
 
 ## 📁 Project Structure
 
 ```text
-com.example.rewardapi
-├── controller       # REST endpoint
-├── exception        # Custom exceptions and handler
-├── model            # DTOs (Transaction, RewardResponse)
-├── service          # Business logic for reward calculation
-├── util             # Utility for reward points and month formatting
-└── RewardapiApplication.java  # Main Spring Boot class
+com.rewards.api
+│
+├── controller
+│   ├── CustomerController.java        // Customer REST endpoints
+│   └── RewardController.java          // Rewards REST endpoints
+│
+├── service
+│   ├── CustomerService.java           // Customer business logic
+│   └── RewardService.java             // Rewards calculation logic
+│
+├── repository
+│   ├── CustomerRepository.java        // Provides mock customer data
+│   └── TransactionRepository.java     // Provides mock transaction data
+│
+├── model
+│   ├── Customer.java                  // Customer entity
+│   ├── Transaction.java               // Transaction entity
+│   └── RewardResponse.java            // Rewards response structure
+│
+├── RewardsApiApplication.java         // Spring Boot main class
+
+
+
+✅ API Endpoints
+🔹 Fetch All Customers
+GET /api/customers
+Returns a list of all customers.
+
+Example Response:
+
+json
+
+[
+    { "customerId": 1, "customerName": "John Doe" },
+    { "customerId": 2, "customerName": "Jane Smith" }
+]
+🔹 Fetch All Rewards
+
+GET /api/rewards
+Returns calculated rewards for all customers, broken down by month and total.
+
+Example Response:
+
+Edit
+[
+    {
+        "customerId": 1,
+        "rewardsPerMonth": { "MARCH": 90, "FEBRUARY": 50 },
+        "totalRewards": 140
+    }
+]
+
+
